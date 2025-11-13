@@ -73,5 +73,20 @@ public:
 		}
 	}
 
+	T getValue(int key) {
+		int step = 0;
+		int i, base;
+		i = base = key % TABLE_SIZE;
+		while (true) {
+			if (tabla[i] == nullptr) return T();
+			else if (tabla[i]->getKey() == key) {
+				return tabla[i]->getValue();
+			}
+			else step++;
+
+			i = (base + step) % TABLE_SIZE;
+		}
+	}
+
 
 };

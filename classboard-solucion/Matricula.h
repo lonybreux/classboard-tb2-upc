@@ -16,6 +16,28 @@
 using namespace std;
 
 #define NOMBRE_COLA "cola_matricula.txt"
+#define NOMBRE_TABLA "tabla_alumnos.txt"
+
+void ingresarTabla(HashTabla<vector<Curso*>>* t,Estudiante* oE) {
+    ofstream tablaEstudiante;
+    vector<Curso*> aux;
+    tablaEstudiante.open(NOMBRE_TABLA, ios::app);
+
+    tablaEstudiante << oE->getIdUsuario() << ":";
+
+    aux = t->getValue(stoi(oE->getIdUsuario()));
+
+    for (int i = 0; i < aux.size(); i++) {
+        tablaEstudiante << aux[i]->getNombre();
+        if (i < aux.size() - 1)
+            tablaEstudiante << ",";
+    }
+
+ 
+    tablaEstudiante << endl;
+
+    tablaEstudiante.close();
+}
 
 
 void ingresarCola(Estudiante* oE) {
@@ -397,6 +419,14 @@ void menuMatricula() {
 
     //Se inserta el id del usuario como clave y sus cursos como valor
     tablaDeEstudiantes->insertar(auxIDEstudiante, oEstudiante->CursosEstudiantes());
+
+    vector<Curso*> aux = tablaDeEstudiantes->getValue(stoi(oEstudiante->getIdUsuario()));
+
+    
+    ingresarTabla(tablaDeEstudiantes, oEstudiante);
+   
+
+    
 
 
 
