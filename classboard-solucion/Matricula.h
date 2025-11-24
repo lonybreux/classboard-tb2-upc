@@ -422,7 +422,7 @@ void menuMatricula() {
 
     vector<Curso*> aux = tablaDeEstudiantes->getValue(stoi(oEstudiante->getIdUsuario()));
 
-    
+
     ingresarTabla(tablaDeEstudiantes, oEstudiante);
    
 

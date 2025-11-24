@@ -118,6 +118,7 @@
     <ClInclude Include="Codigo.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="Curso.h" />
+    <ClInclude Include="Dataset-Estudiantes.h" />
     <ClInclude Include="Estudiante.h" />
     <ClInclude Include="Evaluacion.h" />
     <ClInclude Include="Examen.h" />

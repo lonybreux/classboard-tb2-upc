@@ -5,6 +5,8 @@ using namespace std;
 
 int main() {
 
+    srand(time(nullptr));
+
     vector<string> colaAUX = leerCola();
     bool colaFull;
     if (colaAUX.size() < 5) {
@@ -25,10 +27,6 @@ int main() {
             
         }
     }
-
-    
-
-
 
     system("pause>0");
     return 0;
