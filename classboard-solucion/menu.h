@@ -3,9 +3,9 @@
 #include<string>
 #include"Login.h"
 
+using namespace std;
 enum MenuOpcion { NINGUNO, MATRICULA, BLACKBOARD };
 enum activo { MATRI, BLACK };
-using namespace std;
 
 activo activ = MATRI;
 
@@ -13,7 +13,6 @@ void verificar(activo act)
 {
 	activ = act;
 }
-
 void marcoMenu(int x, int y, int z, int k)
 {
 
@@ -72,7 +71,7 @@ void colorMatri(bool x)
 		marcoMenu(82, 27, 82, 28);
 		cursor(90, 30); cout << "B L A C K B O A R D";
 	}
-	
+
 }
 void colorBlackBoard()
 {

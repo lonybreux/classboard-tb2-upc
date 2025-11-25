@@ -1,11 +1,10 @@
 ﻿#include "Matricula.h"
 #include"menu.h"
-#include <iostream>
+#include <iostream> 
+#include "blackBoardProfesor.h"
 using namespace std;
 
 int main() {
-
-    srand(time(nullptr));
 
     vector<string> colaAUX = leerCola();
     bool colaFull;
@@ -19,12 +18,18 @@ int main() {
     if (Login())
     {
         while (true) {
-            
+
             MenuOpcion opcion = mostrarOpciones(colaFull);
 
             if (opcion == MATRICULA && !colaFull) menuMatricula();
             else if (opcion == BLACKBOARD) BlackBoard();
-            
+        }
+    }
+    else
+    {
+        while (true)
+        {
+            BlackBoardProfesor();
         }
     }
 
