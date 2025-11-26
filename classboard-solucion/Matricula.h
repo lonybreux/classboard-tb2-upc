@@ -108,7 +108,7 @@ Curso* seleccionarSubCursoHorizontal(vector<Curso*> subCursos, int xBase, int yB
             int xPos = 29;
             xPos = (xPos * (i + 1));
             if (i == index)
-                Console::ForegroundColor = ConsoleColor::Yellow;
+                Console::ForegroundColor = ConsoleColor::DarkRed;
             else
                 Console::ForegroundColor = ConsoleColor::White;
 
@@ -309,7 +309,7 @@ void menuMatricula() {
         // Mostrar cursos principales
 
         if (j == i)
-            Console::ForegroundColor = ConsoleColor::Yellow;
+            Console::ForegroundColor = ConsoleColor::DarkRed;
         else
             Console::ForegroundColor = ConsoleColor::White;
         ////5 + j * 28 
@@ -394,7 +394,7 @@ void menuMatricula() {
     }
 
     //Marco de Guardar
-    Console::ForegroundColor = ConsoleColor::Yellow;
+    Console::ForegroundColor = ConsoleColor::DarkRed;
     marcoOpcion(119, 35, 119, 36, 20, 1);
     cursor(120, 36); cout << "Guardar";
 
@@ -423,13 +423,7 @@ void menuMatricula() {
     vector<Curso*> aux = tablaDeEstudiantes->getValue(stoi(oEstudiante->getIdUsuario()));
 
 
-    ingresarTabla(tablaDeEstudiantes, oEstudiante);
-   
-
-    
-
-
-
+    ingresarTabla(tablaDeEstudiantes, oEstudiante); 
 
     Console::ForegroundColor = ConsoleColor::White;
     verificar(BLACK);

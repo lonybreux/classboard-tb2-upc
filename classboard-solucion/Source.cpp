@@ -6,6 +6,7 @@ using namespace std;
 
 int main() {
 
+
     vector<string> colaAUX = leerCola();
     bool colaFull;
     if (colaAUX.size() < 5) {

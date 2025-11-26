@@ -159,7 +159,7 @@ bool Login() {
         nombreProgramaYlogo();
 
 
-        System::Console::ForegroundColor = System::ConsoleColor::Yellow;
+        System::Console::ForegroundColor = System::ConsoleColor::DarkRed;
         marcoLogin(36, 2, 55, 27);
         cursor(65, 28); cout << "ESTUDIANTE|DOCENTE";
 
@@ -178,20 +178,20 @@ bool Login() {
                 if (t == 'w') {
                     y = 22;
 
-                    System::Console::ForegroundColor = System::ConsoleColor::Yellow;
+                    System::Console::ForegroundColor = System::ConsoleColor::DarkRed;
                     marcoLogin(36, 2, 55, 27);
                     cursor(65, 28); cout << "ESTUDIANTE|DOCENTE";
 
                     System::Console::ForegroundColor = System::ConsoleColor::White;
                     marcoLogin(36, 2, 55, 32);
                     cursor(63, 33); cout << "REGISTRARSE COMO ALUMNO";
-                    System::Console::ForegroundColor = System::ConsoleColor::Yellow;
+                    System::Console::ForegroundColor = System::ConsoleColor::DarkRed;
                 }
                 else if (t == 's') {
 
                     y = 27;
 
-                    System::Console::ForegroundColor = System::ConsoleColor::Yellow;
+                    System::Console::ForegroundColor = System::ConsoleColor::DarkRed;
                     cursor(63, 33); cout << "REGISTRARSE COMO ALUMNO";
                     marcoLogin(36, 2, 55, 32);
 

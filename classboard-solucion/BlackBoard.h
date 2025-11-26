@@ -14,7 +14,7 @@ using namespace System;
 //RECURSIVA
 int sumatoria(vector<int>& v, int n) {
 	if (n == 0)
-		return 0; 
+		return 0;
 
 	return v[n - 1] + sumatoria(v, n - 1);
 }
@@ -151,24 +151,24 @@ void paginaPrincipal() {
 "   ***   "
 		};
 
-		
-			// Dibujar gato
-			for (int k = 0; k < gato.size(); k++) {
-				cursor(gx, gy + k);
-				cout << gato[k];
-			}
 
-			// Actualizar posición (una vez por llamada)
-			gx += dx;
-			gy += dy;
+		// Dibujar gato
+		for (int k = 0; k < gato.size(); k++) {
+			cursor(gx, gy + k);
+			cout << gato[k];
+		}
 
-			// Rebote en bordes
-			if (gx <= rectX + 1 || gx + (int)gato[0].size() >= rectX + rectW - 1)
-				dx = -dx;
-			if (gy <= rectY + 1 || gy + (int)gato.size() >= rectY + rectH - 1)
-				dy = -dy;
+		// Actualizar posición (una vez por llamada)
+		gx += dx;
+		gy += dy;
 
-		
+		// Rebote en bordes
+		if (gx <= rectX + 1 || gx + (int)gato[0].size() >= rectX + rectW - 1)
+			dx = -dx;
+		if (gy <= rectY + 1 || gy + (int)gato.size() >= rectY + rectH - 1)
+			dy = -dy;
+
+
 	}
 	else if (index == 1) {
 		// ---- VERANO UPC ----
@@ -258,21 +258,21 @@ void paginaPrincipal() {
 		cursor(x + 53, y + alto + 12); cout << " Biblioteca";
 		//Sleep(5000);
 
-		/*int rectX = x + 75; int rectY = y + alto + 3; int rectW = 35; int rectH = 12; 
-		dibujarRectangulo(rectX, rectY, rectW, rectH); vector<string> gato = { " ______ ", " / \\ ", "| UPC |", " \\/ " }; 
-		int gx = rectX + 2; int gy = rectY + 2; int dx = 1, dy = 1; 
-		for (int step = 0; step < 50; step++) { 
-			for (int i = 1; i < rectH - 1; i++) { 
-				cursor(rectX + 1, rectY + i); cout << string(rectW - 2, ' '); } 
-			for (int k = 0; k < gato.size(); k++) { 
-				cursor(gx, gy + k); cout << gato[k]; } 
-			gx += dx; gy += dy; 
-			if (gx <= rectX + 1 || gx + (int)gato[0].size() >= rectX + rectW - 1) { 
-				dx = -dx; } 
-			if (gy <= rectY + 1 || gy + (int)gato.size() >= rectY + rectH - 1) { 
+		/*int rectX = x + 75; int rectY = y + alto + 3; int rectW = 35; int rectH = 12;
+		dibujarRectangulo(rectX, rectY, rectW, rectH); vector<string> gato = { " ______ ", " / \\ ", "| UPC |", " \\/ " };
+		int gx = rectX + 2; int gy = rectY + 2; int dx = 1, dy = 1;
+		for (int step = 0; step < 50; step++) {
+			for (int i = 1; i < rectH - 1; i++) {
+				cursor(rectX + 1, rectY + i); cout << string(rectW - 2, ' '); }
+			for (int k = 0; k < gato.size(); k++) {
+				cursor(gx, gy + k); cout << gato[k]; }
+			gx += dx; gy += dy;
+			if (gx <= rectX + 1 || gx + (int)gato[0].size() >= rectX + rectW - 1) {
+				dx = -dx; }
+			if (gy <= rectY + 1 || gy + (int)gato.size() >= rectY + rectH - 1) {
 				dy = -dy; }
 
-			Sleep(100); 
+			Sleep(100);
 		}*/
 
 	}
@@ -480,7 +480,7 @@ void BlackBoard()
 
 	string nombre;
 	int n = 0;
-	Console::ForegroundColor = ConsoleColor::Yellow;
+	Console::ForegroundColor = ConsoleColor::DarkRed;
 	marcoOpciones(1, 14, 1, 15);
 	cursor(2, 16); cout << "Pagina principal";
 
@@ -579,7 +579,7 @@ void BlackBoard()
 					cursor(2, 36); cout << "Cerrar Sesion";
 
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 19, 1, 20);
 					cursor(2, 21); cout << "Perfil";
@@ -603,7 +603,7 @@ void BlackBoard()
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 24, 1, 25);
 					cursor(2, 26); cout << "Cursos";
@@ -621,7 +621,7 @@ void BlackBoard()
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpciones(1, 29, 1, 30);
 					cursor(2, 31); cout << "Calificaciones";
 
@@ -643,7 +643,7 @@ void BlackBoard()
 					marcoOpciones(1, 29, 1, 30);
 					cursor(2, 31); cout << "Calificaciones";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
@@ -684,7 +684,7 @@ void BlackBoard()
 					marcoOpcionesCurso(30, 7, 30, 8);
 					cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 24, 1, 25);
 					cursor(2, 26); cout << "Cursos";
@@ -704,7 +704,7 @@ void BlackBoard()
 					marcoOpcionesCurso(106, 7, 106, 8);
 					cursor(107, 9); cout << " ORDENAR POR NRC              V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpcionesCurso(30, 7, 30, 8);
 					cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
 
@@ -720,7 +720,7 @@ void BlackBoard()
 					marcoOpcionesCurso(106, 7, 106, 8);
 					cursor(107, 9); cout << " ORDENAR POR NRC              V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpcionesCurso(68, 7, 68, 8);
 					cursor(69, 9); cout << " ORDENAR POR CREDITOS         V";
 				}
@@ -735,7 +735,7 @@ void BlackBoard()
 					marcoOpcionesCurso(30, 7, 30, 8);
 					cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpcionesCurso(106, 7, 106, 8);
 					cursor(107, 9); cout << " ORDENAR POR NRC              V";
 
@@ -758,7 +758,7 @@ void BlackBoard()
 			if (t == char(32) && (opcion >= 0 && opcion <= 3))
 			{
 
-				
+
 				bool yaBusco = false;
 
 				for (int i = 0; i < aux->longitud(); i++) {
@@ -889,7 +889,7 @@ void BlackBoard()
 					map<string, int> cursoYNota;
 					bool calificaciones_OP = true;
 					int k;
-		
+
 					//BUBBLE SORT
 					auto bubbleSort = [](vector<int>& v) {
 
@@ -912,7 +912,7 @@ void BlackBoard()
 							if (ordenado) break;
 						}
 
-					};
+						};
 
 					//INSERTION SORT
 					auto insertionSort = [](vector<int>& v) {
@@ -950,7 +950,7 @@ void BlackBoard()
 						<< char(196) << char(196) << char(196) << char(196) << char(217);
 					cursor(73, 19); cout << "Ingrese NRC de curso";
 					System::Console::CursorVisible = true;
-					
+
 					System::Console::CursorVisible = false;
 
 					bool seEncontroCurso = false;
@@ -999,7 +999,7 @@ void BlackBoard()
 						cursor(50, 12); cout << "Ver evaluaciones";
 
 						marcoOpcionesCurso(89, 10, 89, 11);
-						cursor(106,19); cout << "4";
+						cursor(106, 19); cout << "4";
 						cursor(94, 12); cout << "Por cantidad de Preguntas";
 
 						marcoOpcionesCurso(41, 20, 41, 21);
@@ -1032,7 +1032,7 @@ void BlackBoard()
 									cursor(80, 21); cout << "           ";
 								}
 
-								
+
 								marcosCurso(30, 15, 30, 16);
 								marcosCurso(68, 15, 68, 16);
 								marcosCurso(106, 15, 106, 16);
@@ -1050,7 +1050,7 @@ void BlackBoard()
 									}
 								}
 
-								
+
 								calificaciones_OP = false;
 								break;
 							case '2':
@@ -1127,7 +1127,7 @@ void BlackBoard()
 								marcosCurso(30, 15, 30, 16);
 								marcosCurso(68, 15, 68, 16);
 								marcosCurso(106, 15, 106, 16);
-							
+
 								calificaciones_OP = false;
 								break;
 							case '4':
@@ -1150,7 +1150,7 @@ void BlackBoard()
 									}
 								}
 
-							
+
 								marcosCurso(30, 12, 30, 13);
 								marcosCurso(68, 12, 68, 13);
 								marcosCurso(106, 12, 106, 13);
@@ -1175,7 +1175,7 @@ void BlackBoard()
 								}
 								cursor(27, 7); cout << "Promedio ponderado de: " << nombreCurso;
 
-								auto promedioPonderado = [](vector<Examen*> v,vector<Proyecto*> v2) {
+								auto promedioPonderado = [](vector<Examen*> v, vector<Proyecto*> v2) {
 
 									double sumatoriaNotas = 0.0;
 
@@ -1189,10 +1189,10 @@ void BlackBoard()
 										sumatoriaNotas += (v2[i]->getNota() * v2[i]->getPeso());
 									}
 
-									
+
 									return sumatoriaNotas;
 
-								};
+									};
 
 								auto promedioSimple = [&](int sum, int n) {
 
@@ -1204,18 +1204,18 @@ void BlackBoard()
 								cursor(81, 14); cout << "Promedios";
 								marcosCurso(68, 15, 68, 16);
 								cursor(72, 19); cout << "Promedio ponderado: " << promedioPonderado(auxExamenes, auxProyectos);
-								cursor(72, 22); cout << "Promedio simple: " << promedioSimple(sumatoria(notas,notas.size()),notas.size());
+								cursor(72, 22); cout << "Promedio simple: " << promedioSimple(sumatoria(notas, notas.size()), notas.size());
 
 								calificaciones_OP = false;
 								break;
 							}
-							
+
 						}
-						
+
 						break;
 					}
 				}
-					
+
 
 			}
 
@@ -1265,7 +1265,7 @@ void BlackBoard()
 				cursor(67, 22); cout << "                         ";;
 				cursor(67, 23); cout << "                         ";;
 
-				
+
 				//Busqueda por profesor
 				//LAMBDA 1
 				auto lambBusqueda = [&]()
@@ -1275,7 +1275,7 @@ void BlackBoard()
 								resultados.push_back(auxV[i]);
 							}
 						}
-				};
+					};
 
 				lambBusqueda();
 

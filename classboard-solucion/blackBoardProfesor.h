@@ -2,6 +2,7 @@
 #include <iostream> 
 #include <string> 
 #include <vector> 
+#include"Lista.h"
 using namespace std;
 using namespace System;
 
@@ -250,28 +251,28 @@ void marcoProfesor()
 		cout << char(186);
 	}
 }
-void marcosCursoProfesor(int x, int y, int z, int k)
+void marcoCursoProfesor(int largo, int ancho, int x, int y)
 {
+	cursor(x, y); cout << char(201);
+	cursor(x, y + ancho); cout << char(200);
 
-	//Horizontal
-	cursor(x - 1, y); cout << char(201);
-	cursor(x - 1, y + 11); cout << char(200);
-	for (int j = 0; j < 35; j++)
+	for (int i = 0; i < largo; i++)
 	{
-		cursor(x, y); cout << char(205);
-		cursor(x, y + 11); cout << char(205);
-		x++;
+		cursor(x + i + 1, y); cout << char(205);
+		cursor(x + i + 1, y + ancho); cout << char(205);
+		if (i >= largo - 1)
+		{
+			cursor(x + i + 2, y); cout << char(187);
+			cursor(x + i + 2, y + ancho); cout << char(188);
+		}
 	}
-	cursor(x, y); cout << char(187);
-	cursor(x, y + 11); cout << char(188);
 
-	//vertical
-	for (int i = 0; i < 10; i++)
+	for (int j = 0; j < ancho - 1; j++)
 	{
-		cursor(z - 1, k); cout << char(186);
-		cursor(z + 35, k); cout << char(186);
-		k++;
+		cursor(x, y + j + 1); cout << char(186);
+		cursor(x + largo + 1, y + j + 1); cout << char(186);
 	}
+
 
 }
 void marcoOpcionesCursoProfesor(int x, int y, int z, int k)
@@ -403,6 +404,54 @@ void marcoBaclkBoardProfesor() {
 
 
 }
+
+void imprimirNRC(Lista<int>*& lNrc)
+{
+	Nodo<int>* aux = lNrc->getInicio();
+	int i[2] = { 31,31 };
+	int j = 18;
+	while (aux != nullptr)
+	{
+		if (i[0] < 110)
+		{
+			cursor(i[0], j); cout << "NRC: " << aux->valor << endl;
+			i[0] += 38;
+		}
+		else
+		{
+			cursor(i[1], j + 12); cout << "NRC: " << aux->valor << endl;
+			i[1] += 38;
+		}
+		aux = aux->siguiente;
+	}
+}
+
+void cursosProfesor()
+{
+	int posX = 31;
+	int posY = 15;
+
+	//cursos del profesor
+	marcoCursoProfesor(35, 11, 29, 15);
+	marcoCursoProfesor(35, 11, 67, 15);
+	marcoCursoProfesor(35, 11, 105, 15);
+	marcoCursoProfesor(35, 11, 29, 27);
+	marcoCursoProfesor(35, 11, 67, 27);
+	marcoCursoProfesor(35, 11, 105, 27);
+
+	for (int i = 0; i < 3; i++)
+	{
+		cursor(posX, posY); cout << " Estructura de datos ";
+		posX += 38;
+	}
+
+	posX = 31;
+	for (int i = 0; i < 3; i++)
+	{
+		cursor(posX, posY + 12); cout << " Estructura de datos ";
+		posX += 38;
+	}
+}
 void BlackBoardProfesor()
 {
 	system("cls");
@@ -428,9 +477,27 @@ void BlackBoardProfesor()
 	bool cursos = false;
 
 	int n = 0;
-	Console::ForegroundColor = ConsoleColor::Yellow;
+	Console::ForegroundColor = ConsoleColor::DarkRed;
 	marcoOpciones(1, 14, 1, 15);
 	cursor(2, 16); cout << "Pagina principal";
+
+	Lista<int>* lNrc = new Lista<int>();
+	Random r;
+	for (int i = 0; i < 6; i++)
+	{
+		if (lNrc->esVacia())
+		{
+			lNrc->agregarInicial(r.Next(100, 15001));
+		}
+		else
+		{
+			lNrc->agregarFinal(r.Next(100, 15001));
+		}
+	}
+
+
+	bool prueba = true;
+
 	while (true) {
 
 		if (_kbhit()) {
@@ -519,7 +586,7 @@ void BlackBoardProfesor()
 					cursor(2, 36); cout << "Cerrar Sesion";
 
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 19, 1, 20);
 					cursor(2, 21); cout << "Perfil";
@@ -543,10 +610,13 @@ void BlackBoardProfesor()
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 24, 1, 25);
 					cursor(2, 26); cout << "Cursos";
+
+
+
 
 				}
 				else if (opcion == 3)
@@ -561,7 +631,7 @@ void BlackBoardProfesor()
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpciones(1, 29, 1, 30);
 					cursor(2, 31); cout << "Calificaciones";
 
@@ -583,7 +653,7 @@ void BlackBoardProfesor()
 					marcoOpciones(1, 29, 1, 30);
 					cursor(2, 31); cout << "Calificaciones";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
@@ -624,7 +694,7 @@ void BlackBoardProfesor()
 					marcoOpcionesCurso(30, 7, 30, 8);
 					cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 24, 1, 25);
 					cursor(2, 26); cout << "Cursos";
@@ -644,7 +714,7 @@ void BlackBoardProfesor()
 					marcoOpcionesCurso(106, 7, 106, 8);
 					cursor(107, 9); cout << " ORDENAR POR NRC              V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpcionesCurso(30, 7, 30, 8);
 					cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
 
@@ -660,7 +730,7 @@ void BlackBoardProfesor()
 					marcoOpcionesCurso(106, 7, 106, 8);
 					cursor(107, 9); cout << " ORDENAR POR NRC              V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpcionesCurso(68, 7, 68, 8);
 					cursor(69, 9); cout << " ORDENAR POR CREDITOS         V";
 				}
@@ -675,7 +745,7 @@ void BlackBoardProfesor()
 					marcoOpcionesCurso(30, 7, 30, 8);
 					cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
 
-					Console::ForegroundColor = ConsoleColor::Yellow;
+					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpcionesCurso(106, 7, 106, 8);
 					cursor(107, 9); cout << " ORDENAR POR NRC              V";
 
@@ -694,6 +764,8 @@ void BlackBoardProfesor()
 				}
 
 			}
+
+
 
 			if (t == char(32) && (opcion >= 0 && opcion <= 3))
 			{
@@ -741,81 +813,105 @@ void BlackBoardProfesor()
 
 					cursor(30, 13); cout << "202520-AC";
 
+					cursosProfesor();
+					imprimirNRC(lNrc);
 					break;
 				}
-
-
 			}
+
 
 			//Funciones para las opciones de los cursos 
 			if (opcionSuperior == 1 && t == char(32))
 			{
-				system("cls");
-				Console::ForegroundColor = ConsoleColor::Gray;
-				marcoBaclkBoardProfesor();
-				cursor(30, 3); cout << "CURSO";
-
-				marcoOpcionesCurso(30, 7, 30, 8);
-				marcoOpcionesCurso(68, 7, 68, 8);
-				marcoOpcionesCurso(106, 7, 106, 8);
-
-
-				Console::ForegroundColor = ConsoleColor::DarkGray;
-				cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
-				cursor(69, 9); cout << " ORDENAR POR CREDITOS         V";
-				cursor(107, 9); cout << " ORDENAR POR NRC              V";
-				Console::ForegroundColor = ConsoleColor::White;
-
-				cursor(30, 13); cout << "202520-AC";
-
-
-
+				imprimirNRC(lNrc);
 			}
 			if (opcionSuperior == 2 && t == char(32))
 			{
-				system("cls");
-				Console::ForegroundColor = ConsoleColor::Gray;
-				marcoBaclkBoardProfesor();
-				cursor(30, 3); cout << "CURSO";
-
-				marcoOpcionesCurso(30, 7, 30, 8);
-				marcoOpcionesCurso(68, 7, 68, 8);
-				marcoOpcionesCurso(106, 7, 106, 8);
-
-
-				Console::ForegroundColor = ConsoleColor::DarkGray;
-				cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
-				cursor(69, 9); cout << " ORDENAR POR CREDITOS         V";
-				cursor(107, 9); cout << " ORDENAR POR NRC              V";
-				Console::ForegroundColor = ConsoleColor::White;
-
-				cursor(30, 13); cout << "202520-AC";
-
-
+				imprimirNRC(lNrc);
 			}
 			if (opcionSuperior == 3 && t == char(32))
 			{
-				system("cls");
-				Console::ForegroundColor = ConsoleColor::Gray;
-				marcoBaclkBoardProfesor();
-				cursor(30, 3); cout << "CURSO";
-
-				marcoOpcionesCurso(30, 7, 30, 8);
-				marcoOpcionesCurso(68, 7, 68, 8);
-				marcoOpcionesCurso(106, 7, 106, 8);
+				imprimirNRC(lNrc);
+			}
+			//Para acceder a los cursos
+			if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(49))
+			{
 
 
-				Console::ForegroundColor = ConsoleColor::DarkGray;
-				cursor(31, 9); cout << " BUSQUEDA POR PROFESOR        V";
-				cursor(69, 9); cout << " ORDENAR POR CREDITOS         V";
-				cursor(107, 9); cout << " ORDENAR POR NRC              V";
 				Console::ForegroundColor = ConsoleColor::White;
-
-				cursor(30, 13); cout << "202520-AC";
+				cursosProfesor();
+				Console::ForegroundColor = ConsoleColor::DarkRed;
+				marcoCursoProfesor(35, 11, 29, 15);
+				Console::ForegroundColor = ConsoleColor::White;
+				cursor(31, 15); cout << " Estructura de datos ";
 
 
 
 			}
+			if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(50))
+			{
+
+				Console::ForegroundColor = ConsoleColor::White;
+				cursosProfesor();
+
+
+				Console::ForegroundColor = ConsoleColor::DarkRed;
+				marcoCursoProfesor(35, 11, 67, 15);
+				Console::ForegroundColor = ConsoleColor::White;
+				cursor(69, 15); cout << " Estructura de datos ";
+
+			}
+			if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(51))
+			{
+
+				Console::ForegroundColor = ConsoleColor::White;
+				cursosProfesor();
+
+
+				Console::ForegroundColor = ConsoleColor::DarkRed;
+				marcoCursoProfesor(35, 11, 105, 15);
+				Console::ForegroundColor = ConsoleColor::White;
+				cursor(107, 15); cout << " Estructura de datos ";
+			}
+
+			if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(52))
+			{
+
+				Console::ForegroundColor = ConsoleColor::White;
+				cursosProfesor();
+
+
+				Console::ForegroundColor = ConsoleColor::DarkRed;
+				marcoCursoProfesor(35, 11, 29, 27);
+				Console::ForegroundColor = ConsoleColor::White;
+				cursor(31, 27); cout << " Estructura de datos ";
+			}
+			if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(53))
+			{
+
+				Console::ForegroundColor = ConsoleColor::White;
+				cursosProfesor();
+
+
+				Console::ForegroundColor = ConsoleColor::DarkRed;
+				marcoCursoProfesor(35, 11, 67, 27);
+				Console::ForegroundColor = ConsoleColor::White;
+				cursor(69, 27); cout << " Estructura de datos ";
+
+			}
+			if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(54))
+			{
+
+				Console::ForegroundColor = ConsoleColor::White;
+				cursosProfesor();
+
+
+				Console::ForegroundColor = ConsoleColor::DarkRed;
+				marcoCursoProfesor(35, 11, 105, 27);
+				Console::ForegroundColor = ConsoleColor::White;
+				cursor(107, 27); cout << " Estructura de datos ";
+			}
+
 
 			if (opcion == 4 && t == char(32))
 			{

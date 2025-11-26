@@ -64,7 +64,7 @@ void colorMatri(bool x)
 		cursor(90, 30); cout << "B L A C K B O A R D";
 	}
 	else {
-		Console::ForegroundColor = ConsoleColor::Yellow;
+		Console::ForegroundColor = ConsoleColor::DarkRed;
 		marcoMenu(40, 27, 40, 28);
 		cursor(48, 30); cout << "M A T R I C U L A";
 		Console::ForegroundColor = ConsoleColor::DarkGray;
@@ -75,7 +75,7 @@ void colorMatri(bool x)
 }
 void colorBlackBoard()
 {
-	Console::ForegroundColor = ConsoleColor::Yellow;
+	Console::ForegroundColor = ConsoleColor::DarkRed;
 	marcoMenu(82, 27, 82, 28);
 	cursor(90, 30); cout << "B L A C K B O A R D";
 	Console::ForegroundColor = ConsoleColor::DarkGray;
