@@ -642,6 +642,67 @@ void mostrarMalla()
 	Console::ForegroundColor = ConsoleColor::White;
 
 }
+
+void merge(Curso* a1[], int n1, Curso* a2[], int n2, Curso* a[]) {
+	int i = 0, j = 0, k = 0;
+
+
+	while (i < n1 && j < n2) {
+		if (a1[i]->getCreditos() < a2[j]->getCreditos()) {
+			a[k] = a1[i];
+			i++;
+		}
+		else {
+			a[k] = a2[j];
+			j++;
+		}
+		k++;
+	}
+
+
+	while (i < n1) {
+		a[k] = a1[i];
+		i++;
+		k++;
+	}
+
+
+	while (j < n2) {
+		a[k] = a2[j];
+		j++;
+		k++;
+	}
+}
+
+void mergesort(Curso* a[], int n) {
+	if (n > 1) {
+
+		int mid = n / 2;
+
+
+		Curso** a1 = new Curso * [mid];
+		Curso** a2 = new Curso * [n - mid];
+
+
+		for (int i = 0; i < mid; i++)
+			a1[i] = a[i];
+
+
+		for (int i = 0; i < n - mid; i++)
+			a2[i] = a[mid + i];
+
+
+		mergesort(a1, mid);
+		mergesort(a2, n - mid);
+
+
+		merge(a1, mid, a2, n - mid, a);
+
+		delete[] a1;
+		delete[] a2;
+	}
+}
+
 void BlackBoard()
 {
 	system("cls");
@@ -1567,29 +1628,16 @@ void BlackBoard()
 				//Algoritmo de ordenamiento
 
 				//Orden de menor a mayor
-				//LAMBDA 2
+				//LAMBDA 2	
+				//MERGESORT
 				auto ordenCREDm = [&]()
 					{
-
 						if (orden[0] == true)
 						{
-							cursor(70, 13); cout << "menor A MAYOR";
-							for (int i = 0; i < aux->longitud(); i++)
-							{
-								for (int j = i + 1; j < aux->longitud(); j++)
-								{
-									if (auxV[i]->getCreditos() > auxV[j]->getCreditos())
-									{
-										temp = auxV[i];
-										auxV[i] = auxV[j];
-										auxV[j] = temp;
-
-									}
-								}
-								activ[0] = true;
-							}
+							cursor(70, 13); cout << "MENOR A mayor";
+							mergesort(&auxV[0], auxV.size());
+							activ[0] = true;
 						}
-
 					};
 
 				ordenCREDm();

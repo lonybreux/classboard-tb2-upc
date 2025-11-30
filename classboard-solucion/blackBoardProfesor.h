@@ -57,7 +57,8 @@ void perfilProfesor() {
 	cursor(77, 21); cout << ".--======--.";
 
 	Console::ForegroundColor = ConsoleColor::White;
-	cursor(67, 28), cout << "Carrera: Ingenieria de Software";
+	cursor(67, 26), cout << "	      Ingeniero";
+	cursor(73, 28), cout << "Pedro Paulet Mostajo";
 }
 
 void dibujarRectanguloProfesor(int x, int y, int ancho, int alto, int color = 7) {
@@ -831,7 +832,7 @@ void BlackBoardProfesor()
 					system("cls");
 					Console::ForegroundColor = ConsoleColor::Gray;
 					marcoBaclkBoardProfesor();
-					perfil(codigoUsuarioActual);
+					perfilProfesor();
 					cursos = false;
 
 					break;
@@ -943,14 +944,17 @@ void BlackBoardProfesor()
 			if (numActivo)
 			{
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(49))
-				{ 
+				{
+
 
 					Console::ForegroundColor = ConsoleColor::White;
 					cursosProfesor();
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoCursoProfesor(35, 11, 29, 15);
 					Console::ForegroundColor = ConsoleColor::White;
-					cursor(31, 15); cout << " Estructura de datos "; 
+					cursor(31, 15); cout << " Estructura de datos ";
+
+
 
 				}
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(50))
