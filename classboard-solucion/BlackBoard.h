@@ -6,10 +6,14 @@
 #include "Global.h"
 #include <string>
 #include "Login.h"
-#include "Pila.h"
+#include "Pila.h"  
+#include "Grafo.h"
+
+
 using namespace std;
 using namespace System;
 
+CGrafo<string>* malla = new CGrafo<string>();
 
 //RECURSIVA
 int sumatoria(vector<int>& v, int n) {
@@ -409,7 +413,7 @@ void marcoBaclkBoard() {
 
 
 	marcoOpciones(1, 14, 1, 15);
-	cursor(2, 16); cout << "Pagina principal";
+	cursor(2, 16); cout << "Malla Curricular";
 
 	marcoOpciones(1, 19, 1, 20);
 	cursor(2, 21); cout << "Perfil";
@@ -455,6 +459,189 @@ void marcoBaclkBoard() {
 	cursor(144, 6); cout << char(185);
 }
 
+void MallaCurricular()
+{
+
+
+	//CICLO 1 
+	malla->adicionarVertice("Creatividad y Liderazgo"); //0
+	malla->adicionarVertice("Etica y Ciudadania"); //1
+	malla->adicionarVertice("Matematica Basica"); //2
+	malla->adicionarVertice("Introduccion a los Algoritmos"); //3
+	malla->adicionarVertice("CPL I"); //4
+
+	//CICLO 2
+	malla->adicionarVertice("Algoritmos"); //5
+	malla->adicionarArco(3, 5);
+	malla->adicionarVertice("CPL II"); //6
+	malla->adicionarArco(4, 6);
+	malla->adicionarVertice("Calculo I"); //7
+	malla->adicionarArco(2, 7);
+	malla->adicionarVertice("Organizacion y Direccion de Empresas"); //8
+	malla->adicionarVertice("Seminario de Investigacion Academica I"); //9
+	malla->adicionarArco(4, 9);
+
+	//CICLO 3
+	malla->adicionarVertice("Disenio y Patrones de Software"); //10
+	malla->adicionarArco(5, 10);
+	malla->adicionarVertice("Algoritmos y Estructura de Datos"); //11
+	malla->adicionarArco(5, 11);
+	malla->adicionarVertice("Fisica I"); //12
+	malla->adicionarArco(7, 12);
+	malla->adicionarVertice("Especificacion Y Analisis de Requerimientos"); //13
+	malla->adicionarArco(8, 13);
+	malla->adicionarVertice("Matematica Discreta"); //14 
+	malla->adicionarArco(3, 14);
+	malla->adicionarArco(2, 14);
+
+
+	//CICLO 4
+	malla->adicionarVertice("Arquitectura de Computadoras"); //15
+	malla->adicionarArco(14, 15);
+	malla->adicionarVertice("Disenio de Base de Datos"); //16
+	malla->adicionarArco(10, 16);
+	malla->adicionarArco(11, 16);
+	malla->adicionarVertice("Fisica II"); //17
+	malla->adicionarArco(12, 17);
+	malla->adicionarVertice("IHC y Tecnologias Moviles"); //18
+	malla->adicionarArco(13, 18);
+	malla->adicionarVertice("Matematica Computacional"); //19 
+	malla->adicionarArco(14, 19);
+
+
+	//CICLO 5
+	malla->adicionarVertice("Aplicaciones Web"); //20
+	malla->adicionarArco(16, 20);
+	malla->adicionarVertice("Desarrollo de Aplicaciones Open Source"); //21
+	malla->adicionarArco(16, 21);
+	malla->adicionarVertice("Calculo II"); //22
+	malla->adicionarArco(7, 22);
+	malla->adicionarVertice("Sistemas Operativos"); //23 
+	malla->adicionarArco(15, 23);
+	malla->adicionarArco(18, 23);
+
+
+	//CICLO 6
+	malla->adicionarVertice("Aplicaciones para Dispositivos Moviles"); //24
+	malla->adicionarArco(20, 24);
+	malla->adicionarVertice("Complejidad Algoritmica"); //25
+	malla->adicionarArco(11, 25);
+	malla->adicionarVertice("Estadistica Aplicada I"); //26
+	malla->adicionarArco(19, 26);
+	malla->adicionarVertice("Redes y Comunicaciones de Datos"); //27 
+	malla->adicionarArco(23, 27);
+
+
+	//CICLO 7
+	malla->adicionarVertice("Fundamentos de Arquitectura de Software"); //28
+	malla->adicionarArco(21, 28);
+	malla->adicionarVertice("Desarrollo de Soluciones IoT"); //29
+	malla->adicionarArco(24, 29);
+	malla->adicionarVertice("Disenio de Experimentos de Ingenieria de Software"); //30
+	malla->adicionarArco(26, 30);
+	malla->adicionarVertice("Finanzas e Ingenieria Economica"); //31  
+
+
+	//CICLO 8
+	malla->adicionarVertice("Arquitecturas de Software Emergentes"); //32
+	malla->adicionarArco(28, 32);
+	malla->adicionarVertice("Gerencia de Proyectos en Computacion"); //33
+	malla->adicionarVertice("Seminario de Investigacion Academica II"); //34
+	malla->adicionarArco(9, 34);
+	malla->adicionarVertice("Taller de Desempenio Profesional"); //35
+	malla->adicionarArco(30, 35);
+
+
+	//CICLO 9 
+	malla->adicionarVertice("Calidad Y Mejora De Procesos Software"); //36
+	malla->adicionarArco(28, 36);
+	malla->adicionarVertice("Desarrollo Agil de Productos de Software"); //37
+	malla->adicionarArco(32, 37);
+	malla->adicionarArco(33, 37);
+	malla->adicionarVertice("Taller De Proyecto I"); //38
+	malla->adicionarArco(33, 38);
+	malla->adicionarArco(35, 38);
+	malla->adicionarArco(34, 38);
+
+
+	//CICLO 10 
+	malla->adicionarVertice("Taller De Proyecto II"); //39 
+	malla->adicionarArco(38, 39);
+
+	//ADICIONAL
+	malla->adicionarVertice("100 Creditos aprobados");//40
+	malla->adicionarArco(40, 30);
+	malla->adicionarArco(40, 31);
+	malla->adicionarVertice("140 Creditos aprobados");//41
+	malla->adicionarArco(41, 33);
+	malla->adicionarVertice("145 Creditos aprobados");//42
+	malla->adicionarArco(42, 34);
+	malla->adicionarVertice("Ingles 5");//43
+	malla->adicionarArco(43, 35);
+	malla->adicionarVertice("Aprobacion por el Director de carrera");//44
+	malla->adicionarArco(44, 38);
+
+
+
+}
+void mostrarMalla()
+{
+	cursor(45, 7); cout << " __  __       _ _          ____                _            _            ";
+	cursor(45, 8); cout << "|  \\/  | __ _| | | __ _   / ___|   _ _ __ _ __(_) ___ _   _| | __ _ _ __  ";
+	cursor(45, 9); cout << "| |\\/| |/ _` | | |/ _` | | |  | | | | '__| '__| |/ __| | | | |/ _` | '__| ";
+	cursor(45, 10); cout << "| |  | | (_| | | | (_| | | |__| |_| | |  | |  | | (__| |_| | | (_| | |    ";
+	cursor(45, 11); cout << "|_|  |_|\\__,_|_|_|\\__,_|  \\____\\__,_|_|  |_|  |_|\\___|\\__,_|_|\\__,_|_|";
+
+	// Número de cursos por ciclo
+	int cursosPorCiclo[10] = { 5,5,5,5,4,4,4,4,3,1 };
+
+	int index = 0; // índice global de vértices del grafo
+	int valorX = 40;
+	int valorY = 14;
+
+	for (int i = 0; i < 10; i++)
+	{
+		Console::ForegroundColor = ConsoleColor::DarkRed;
+		cursor(valorX, valorY); cout << "CICLO " << i + 1;
+		Console::ForegroundColor = ConsoleColor::White;
+		for (int j = 0; j < cursosPorCiclo[i]; j++)
+		{
+			cursor(valorX, valorY + j + 2); cout << malla->obtenerVertice(index++);
+		}
+
+		valorY += 8;
+		if (i == 2)
+		{
+			valorY = 14;
+			valorX = 90;
+		}
+		if (i == 5)
+		{
+
+			for (int i = 0; i < 25; i++)
+			{
+				for (int j = 0; j < 113; j++)
+				{
+					cursor(j + 29, i + 14); cout << " ";
+				}
+			}
+			valorY = 14;
+			valorX = 40;
+		}
+		if (i == 8)
+		{
+			valorX = 100;
+			valorY = 14;
+		}
+		_sleep(650);
+	}
+
+	Console::ForegroundColor = ConsoleColor::Red;
+	cursor(87, 38); cout << "Presione una tecla para buscar prerrequisito de un curso";
+	system("pause>0");
+	Console::ForegroundColor = ConsoleColor::White;
+
+}
 void BlackBoard()
 {
 	system("cls");
@@ -482,10 +669,12 @@ void BlackBoard()
 	int n = 0;
 	Console::ForegroundColor = ConsoleColor::DarkRed;
 	marcoOpciones(1, 14, 1, 15);
-	cursor(2, 16); cout << "Pagina principal";
+	cursor(2, 16); cout << "Malla Curricular";
 
+	string curso;
 	bool orden[2] = { true, true };
 	bool activ[2] = { false, false };
+	MallaCurricular();
 	while (true) {
 
 		if (_kbhit()) {
@@ -495,6 +684,7 @@ void BlackBoard()
 			vector<Curso*>auxV;
 			vector<Curso*> resultados;
 			Curso* temp;
+
 			bool estaEnPaginaPrincipal = false;
 			if (estadoMenu == 0)
 			{
@@ -514,10 +704,10 @@ void BlackBoard()
 				cursor(i, j + opcion * salto);
 				cout << "<";
 
-				// ======= Dibujar menú lateral =======
+
 				Console::ForegroundColor = ConsoleColor::White;
 
-				marcoOpciones(1, 14, 1, 15); cursor(2, 16); cout << "Pagina principal";
+				marcoOpciones(1, 14, 1, 15); cursor(2, 16); cout << "Malla Curricular";
 				marcoOpciones(1, 19, 1, 20); cursor(2, 21); cout << "Perfil";
 				marcoOpciones(1, 24, 1, 25); cursor(2, 26); cout << "Cursos";
 				marcoOpciones(1, 29, 1, 30); cursor(2, 31); cout << "Calificaciones";
@@ -525,7 +715,7 @@ void BlackBoard()
 
 
 				switch (opcion) {
-				case 0: marcoOpciones(1, 14, 1, 15); cursor(2, 16); cout << "Pagina principal"; break;
+				case 0: marcoOpciones(1, 14, 1, 15); cursor(2, 16); cout << "Malla Curricular"; break;
 				case 1: marcoOpciones(1, 19, 1, 20); cursor(2, 21); cout << "Perfil"; break;
 				case 2: marcoOpciones(1, 24, 1, 25); cursor(2, 26); cout << "Cursos"; break;
 				case 3: marcoOpciones(1, 29, 1, 30); cursor(2, 31); cout << "Calificaciones"; break;
@@ -534,21 +724,61 @@ void BlackBoard()
 
 				if (opcion == 0)
 				{
+					Console::ForegroundColor = ConsoleColor::DarkRed;
+					marcoOpciones(1, 14, 1, 15);
+					cursor(2, 16); cout << "Malla Curricular";
+					Console::ForegroundColor = ConsoleColor::White;
 
 					if (t == char(32)) {
-						index = (index - 1 + 3) % 3;
 						system("cls");
-						marcoBaclkBoard();
-						paginaPrincipal();
-					}
-					else if (t == char(32)) {
-						index = (index + 1) % 3;
-						system("cls");
-						marcoBaclkBoard();
-						paginaPrincipal();
-					}
-				}
 
+						index = (index - 1 + 3) % 3;
+						marcoBaclkBoard();
+						cursor(30, 3); cout << "MALLA CURRICULAR";
+
+
+						mostrarMalla();
+						for (int i = 0; i < 25; i++)
+						{
+							for (int j = 0; j < 114; j++)
+							{
+								cursor(j + 29, i + 14); cout << " ";
+							}
+						}
+
+						while (cin.rdbuf()->in_avail() > 0)
+						{
+							cin.get();
+						}
+
+						cursor(30, 18); cout << "Ingrese curso: ";
+						Console::ForegroundColor = ConsoleColor::DarkGray;
+						getline(cin, curso);
+
+						vector<CVertice<string>*> aux;
+
+						aux = malla->getPrerrequisitos(curso);
+
+						int j = 22;
+						if (aux.size() == 0) {
+							Console::ForegroundColor = ConsoleColor::DarkRed;
+							cursor(30, 20); cout << "No tiene prerrequisitos";
+						}
+						else {
+							for (const CVertice<string>* i : aux) {
+								Console::ForegroundColor = ConsoleColor::DarkRed;
+								cursor(40, 21); cout << "Prerrequisitos: ";
+								Console::ForegroundColor = ConsoleColor::Gray;
+								cursor(40, j); cout << " - " << i->info << "\n";
+								j++;
+							}
+						}
+
+
+
+					}
+
+				}
 
 				if (t == 'd' && opcion == 2 && cursos == true)
 				{
@@ -560,94 +790,39 @@ void BlackBoard()
 
 				}
 
-
 				else if (opcion == 1)
 				{
-
-					Console::ForegroundColor = ConsoleColor::White;
-
-					marcoOpciones(1, 14, 1, 15);
-					cursor(2, 16); cout << "Pagina principal";
-
-					marcoOpciones(1, 24, 1, 25);
-					cursor(2, 26); cout << "Cursos";
-
-					marcoOpciones(1, 29, 1, 30);
-					cursor(2, 31); cout << "Calificaciones";
-
-					marcoOpciones(1, 34, 1, 35);
-					cursor(2, 36); cout << "Cerrar Sesion";
-
-
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 19, 1, 20);
 					cursor(2, 21); cout << "Perfil";
-
+					Console::ForegroundColor = ConsoleColor::White;
 				}
 
 				else if (opcion == 2)
 				{
 
-					Console::ForegroundColor = ConsoleColor::White;
-
-					marcoOpciones(1, 14, 1, 15);
-					cursor(2, 16); cout << "Pagina principal";
-
-					marcoOpciones(1, 19, 1, 20);
-					cursor(2, 21); cout << "Perfil";
-
-					marcoOpciones(1, 29, 1, 30);
-					cursor(2, 31); cout << "Calificaciones";
-
-					marcoOpciones(1, 34, 1, 35);
-					cursor(2, 36); cout << "Cerrar Sesion";
-
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 24, 1, 25);
 					cursor(2, 26); cout << "Cursos";
-
+					Console::ForegroundColor = ConsoleColor::White;
 				}
 				else if (opcion == 3)
 				{
 
-					Console::ForegroundColor = ConsoleColor::White;
-
-					marcoOpciones(1, 14, 1, 15);
-					cursor(2, 16); cout << "Pagina principal";
-					marcoOpciones(1, 24, 1, 25);
-					cursor(2, 26); cout << "Cursos";
-					marcoOpciones(1, 34, 1, 35);
-					cursor(2, 36); cout << "Cerrar Sesion";
-
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpciones(1, 29, 1, 30);
 					cursor(2, 31); cout << "Calificaciones";
-
+					Console::ForegroundColor = ConsoleColor::White;
 				}
 				else if (opcion == 4)
 				{
-
-					Console::ForegroundColor = ConsoleColor::White;
-
-					marcoOpciones(1, 14, 1, 15);
-					cursor(2, 16); cout << "Pagina principal";
-
-					marcoOpciones(1, 19, 1, 20);
-					cursor(2, 21); cout << "Perfil";
-
-					marcoOpciones(1, 24, 1, 25);
-					cursor(2, 26); cout << "Cursos";
-
-					marcoOpciones(1, 29, 1, 30);
-					cursor(2, 31); cout << "Calificaciones";
-
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
-
+					Console::ForegroundColor = ConsoleColor::White;
 				}
 
 
