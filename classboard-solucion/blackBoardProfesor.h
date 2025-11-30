@@ -3,9 +3,60 @@
 #include <string> 
 #include <vector>  
 #include"ArbolBinario.h"
+#include "Profesor.h"
+#include "HashTabla.h"
+#include "ArbolAVL.h"
 
 using namespace std;
 using namespace System;
+
+int HashString(string s);
+
+void imprimir(int e) {
+	cout << e << " ";
+}
+
+//SECCION 1
+Profesor* oProfesor1 = new Profesor();
+vector<string> nombresAlumnos1 = oProfesor1->getNombreAlumnos();
+
+HashTabla<vector<int>>* tablaEstudiantes1;
+
+//SECCION 2
+Profesor* oProfesor2 = new Profesor();
+vector<string> nombresAlumnos2 = oProfesor2->getNombreAlumnos();
+
+HashTabla<vector<int>>* tablaEstudiantes2;
+
+//SECCION 3
+Profesor* oProfesor3 = new Profesor();
+vector<string> nombresAlumnos3 = oProfesor3->getNombreAlumnos();
+
+HashTabla<vector<int>>* tablaEstudiantes3;
+
+//SECCION 4
+Profesor* oProfesor4 = new Profesor();
+vector<string> nombresAlumnos4 = oProfesor4->getNombreAlumnos();
+
+HashTabla<vector<int>>* tablaEstudiantes4;
+
+
+//SECCION 5
+Profesor* oProfesor5 = new Profesor();
+vector<string> nombresAlumnos5 = oProfesor5->getNombreAlumnos();
+
+HashTabla<vector<int>>* tablaEstudiantes5;
+
+//SECCION 6
+Profesor* oProfesor6 = new Profesor();
+vector<string> nombresAlumnos6 = oProfesor6->getNombreAlumnos();
+
+HashTabla<vector<int>>* tablaEstudiantes6;
+
+//VECTOR TODO LOS ALUMNOS
+
+vector<string> todosAlumnos;
+
 
 struct AtributosCurso {
 	int nrc;
@@ -386,7 +437,7 @@ void marcoBaclkBoardProfesor() {
 	cursor(2, 26); cout << "Cursos";
 
 	marcoOpcionesProfesor(1, 29, 1, 30);
-	cursor(2, 31); cout << "Calificaciones";
+	cursor(2, 31); cout << "Ver Alumnos";
 
 	marcoOpcionesProfesor(1, 34, 1, 35);
 	cursor(2, 36); cout << "Cerrar Sesion";
@@ -516,6 +567,14 @@ void limpiarcursos()
 		}
 	}
 }
+
+
+
+
+
+
+
+
 void BlackBoardProfesor()
 {
 	system("cls");
@@ -547,6 +606,9 @@ void BlackBoardProfesor()
 	bool evitarEspacios = true;
 	bool numActivo = true;
 
+	
+
+
 	while (true) {
 		int nrc;
 		if (_kbhit()) {
@@ -576,7 +638,7 @@ void BlackBoardProfesor()
 				marcoOpciones(1, 14, 1, 15); cursor(2, 16); cout << "Pagina principal";
 				marcoOpciones(1, 19, 1, 20); cursor(2, 21); cout << "Perfil";
 				marcoOpciones(1, 24, 1, 25); cursor(2, 26); cout << "Cursos";
-				marcoOpciones(1, 29, 1, 30); cursor(2, 31); cout << "Calificaciones";
+				marcoOpciones(1, 29, 1, 30); cursor(2, 31); cout << "Ver Alumnos";
 				marcoOpciones(1, 34, 1, 35); cursor(2, 36); cout << "Cerrar Sesion";
 
 
@@ -584,7 +646,7 @@ void BlackBoardProfesor()
 				case 0: marcoOpciones(1, 14, 1, 15); cursor(2, 16); cout << "Pagina principal"; break;
 				case 1: marcoOpciones(1, 19, 1, 20); cursor(2, 21); cout << "Perfil"; break;
 				case 2: marcoOpciones(1, 24, 1, 25); cursor(2, 26); cout << "Cursos"; break;
-				case 3: marcoOpciones(1, 29, 1, 30); cursor(2, 31); cout << "Calificaciones"; break;
+				case 3: marcoOpciones(1, 29, 1, 30); cursor(2, 31); cout << "Ver Alumnos"; break;
 				case 4: marcoOpciones(1, 34, 1, 35); cursor(2, 36); cout << "Cerrar Sesion"; break;
 				}
 
@@ -631,7 +693,7 @@ void BlackBoardProfesor()
 					cursor(2, 26); cout << "Cursos";
 
 					marcoOpciones(1, 29, 1, 30);
-					cursor(2, 31); cout << "Calificaciones";
+					cursor(2, 31); cout << "Ver Alumnos";
 
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
@@ -656,7 +718,7 @@ void BlackBoardProfesor()
 					cursor(2, 21); cout << "Perfil";
 
 					marcoOpciones(1, 29, 1, 30);
-					cursor(2, 31); cout << "Calificaciones";
+					cursor(2, 31); cout << "Ver Alumnos";
 
 					marcoOpciones(1, 34, 1, 35);
 					cursor(2, 36); cout << "Cerrar Sesion";
@@ -684,7 +746,7 @@ void BlackBoardProfesor()
 
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoOpciones(1, 29, 1, 30);
-					cursor(2, 31); cout << "Calificaciones";
+					cursor(2, 31); cout << "Ver Alumnos";
 					evitarEspacios = true;
 
 				}
@@ -703,7 +765,7 @@ void BlackBoardProfesor()
 					cursor(2, 26); cout << "Cursos";
 
 					marcoOpciones(1, 29, 1, 30);
-					cursor(2, 31); cout << "Calificaciones";
+					cursor(2, 31); cout << "Ver Alumnos";
 
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 
@@ -821,7 +883,7 @@ void BlackBoardProfesor()
 
 			if (t == char(32) && (opcion >= 0 && opcion <= 3) && evitarEspacios)
 			{
-
+				
 				//PARA IMPRIMIR LOS CURSOS
 				int auxX = 40;
 				int auxY = 20;
@@ -940,13 +1002,23 @@ void BlackBoardProfesor()
 				arbolNRC->imprimirenOrdenXY(32, 18);
 			}
 
+			
+
 			//Para acceder a los cursos
 			if (numActivo)
 			{
+
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(49))
-				{
+				{ 
+					cout << "Seccion 1";
+					
+					//Recibirá la tabla de alumnos: Clave = nombreAlumno ; Valor = vector de notas
+					tablaEstudiantes1 = oProfesor1->getTablaAlumnos();
 
 
+					oProfesor1->setNombre("Matias");
+					oProfesor1->setApellido("Carrillo");
+					
 					Console::ForegroundColor = ConsoleColor::White;
 					cursosProfesor();
 					Console::ForegroundColor = ConsoleColor::DarkRed;
@@ -954,24 +1026,102 @@ void BlackBoardProfesor()
 					Console::ForegroundColor = ConsoleColor::White;
 					cursor(31, 15); cout << " Estructura de datos ";
 
+					_sleep(1000);
 
+					limpiarcursos();
 
+					oProfesor1->verAlumnos(30,17);
+					
+
+					int xCursorAux = 30;
+					int yCursorAux = 19;
+					int yAuxNum = yCursorAux;
+					for (int i = 0; i < nombresAlumnos1.size(); i++) {
+						
+						for (int j = 0; j < tablaEstudiantes1->getValue(HashString(nombresAlumnos1[i])).size(); j++) {
+							cursor(xCursorAux, yCursorAux); cout << "|";
+
+							cursor(xCursorAux + 1, yCursorAux); cout << tablaEstudiantes1->getValue(HashString(nombresAlumnos1[i]))[j];
+							
+							xCursorAux += 3;
+							
+						}
+						_sleep(100);
+
+						xCursorAux -= 15;
+						yCursorAux += 7;
+
+						if (yCursorAux > 35) {
+							yCursorAux = yAuxNum;
+							xCursorAux += 22;
+						}
+
+					}
+					
+
+					
 				}
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(50))
 				{
 
+					cout << "Seccion 2";
+					
+					//Recibirá la tabla de alumnos: Clave = nombreAlumno ; Valor = vector de notas
+					tablaEstudiantes2 = oProfesor2->getTablaAlumnos();
+
+					oProfesor2->setNombre("Matias");
+					oProfesor2->setApellido("Carrillo");
+
 					Console::ForegroundColor = ConsoleColor::White;
 					cursosProfesor();
-
-
 					Console::ForegroundColor = ConsoleColor::DarkRed;
 					marcoCursoProfesor(35, 11, 67, 15);
 					Console::ForegroundColor = ConsoleColor::White;
 					cursor(69, 15); cout << " Estructura de datos ";
 
+					_sleep(1000);
+
+					limpiarcursos();
+
+					oProfesor2->verAlumnos(30, 17);
+
+					
+					int xCursorAux = 30;
+					int yCursorAux = 19;
+					int yAuxNum = yCursorAux;
+					for (int i = 0; i < nombresAlumnos2.size(); i++) {
+
+						for (int j = 0; j < tablaEstudiantes2->getValue(HashString(nombresAlumnos2[i])).size(); j++) {
+							cursor(xCursorAux, yCursorAux); cout << "|";
+
+							cursor(xCursorAux + 1, yCursorAux); cout << tablaEstudiantes2->getValue(HashString(nombresAlumnos2[i]))[j];
+
+							xCursorAux += 3;
+
+						}
+						_sleep(100);
+
+						xCursorAux -= 15;
+						yCursorAux += 7;
+
+						if (yCursorAux > 35) {
+							yCursorAux = yAuxNum;
+							xCursorAux += 22;
+						}
+
+					}
+
 				}
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(51))
 				{
+
+					cout << "Seccion 3";
+
+					//Recibirá la tabla de alumnos: Clave = nombreAlumno ; Valor = vector de notas
+					tablaEstudiantes3 = oProfesor3->getTablaAlumnos();
+
+					oProfesor3->setNombre("Matias");
+					oProfesor3->setApellido("Carrillo");
 
 					Console::ForegroundColor = ConsoleColor::White;
 					cursosProfesor();
@@ -981,10 +1131,52 @@ void BlackBoardProfesor()
 					marcoCursoProfesor(35, 11, 105, 15);
 					Console::ForegroundColor = ConsoleColor::White;
 					cursor(107, 15); cout << " Estructura de datos ";
+
+
+					_sleep(1000);
+
+					limpiarcursos();
+
+					oProfesor3->verAlumnos(30, 17);
+
+
+					int xCursorAux = 30;
+					int yCursorAux = 19;
+					int yAuxNum = yCursorAux;
+					for (int i = 0; i < nombresAlumnos3.size(); i++) {
+
+						for (int j = 0; j < tablaEstudiantes3->getValue(HashString(nombresAlumnos3[i])).size(); j++) {
+							cursor(xCursorAux, yCursorAux); cout << "|";
+
+							cursor(xCursorAux + 1, yCursorAux); cout << tablaEstudiantes3->getValue(HashString(nombresAlumnos3[i]))[j];
+
+							xCursorAux += 3;
+
+						}
+						_sleep(100);
+
+						xCursorAux -= 15;
+						yCursorAux += 7;
+
+						if (yCursorAux > 35) {
+							yCursorAux = yAuxNum;
+							xCursorAux += 22;
+						}
+
+					}
 				}
 
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(52))
 				{
+
+					cout << "Seccion 4";
+
+					//Recibirá la tabla de alumnos: Clave = nombreAlumno ; Valor = vector de notas
+					tablaEstudiantes4 = oProfesor4->getTablaAlumnos();
+
+					oProfesor4->setNombre("Matias");
+					oProfesor4->setApellido("Carrillo");
+
 
 					Console::ForegroundColor = ConsoleColor::White;
 					cursosProfesor();
@@ -994,9 +1186,51 @@ void BlackBoardProfesor()
 					marcoCursoProfesor(35, 11, 29, 27);
 					Console::ForegroundColor = ConsoleColor::White;
 					cursor(31, 27); cout << " Estructura de datos ";
+
+
+					_sleep(1000);
+
+					limpiarcursos();
+
+					oProfesor4->verAlumnos(30, 17);
+
+
+					int xCursorAux = 30;
+					int yCursorAux = 19;
+					int yAuxNum = yCursorAux;
+					for (int i = 0; i < nombresAlumnos4.size(); i++) {
+
+						for (int j = 0; j < tablaEstudiantes4->getValue(HashString(nombresAlumnos4[i])).size(); j++) {
+							cursor(xCursorAux, yCursorAux); cout << "|";
+
+							cursor(xCursorAux + 1, yCursorAux); cout << tablaEstudiantes4->getValue(HashString(nombresAlumnos4[i]))[j];
+
+							xCursorAux += 3;
+
+						}
+						_sleep(100);
+
+						xCursorAux -= 15;
+						yCursorAux += 7;
+
+						if (yCursorAux > 35) {
+							yCursorAux = yAuxNum;
+							xCursorAux += 22;
+						}
+
+					}
+
 				}
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(53))
 				{
+
+					cout << "Seccion 5";
+
+					//Recibirá la tabla de alumnos: Clave = nombreAlumno ; Valor = vector de notas
+					tablaEstudiantes5 = oProfesor5->getTablaAlumnos();
+
+					oProfesor5->setNombre("Matias");
+					oProfesor5->setApellido("Carrillo");
 
 					Console::ForegroundColor = ConsoleColor::White;
 					cursosProfesor();
@@ -1007,9 +1241,51 @@ void BlackBoardProfesor()
 					Console::ForegroundColor = ConsoleColor::White;
 					cursor(69, 27); cout << " Estructura de datos ";
 
+					_sleep(1000);
+
+					limpiarcursos();
+
+					oProfesor5->verAlumnos(30, 17);
+
+
+					int xCursorAux = 30;
+					int yCursorAux = 19;
+					int yAuxNum = yCursorAux;
+					for (int i = 0; i < nombresAlumnos5.size(); i++) {
+
+						for (int j = 0; j < tablaEstudiantes5->getValue(HashString(nombresAlumnos5[i])).size(); j++) {
+							cursor(xCursorAux, yCursorAux); cout << "|";
+
+							cursor(xCursorAux + 1, yCursorAux); cout << tablaEstudiantes5->getValue(HashString(nombresAlumnos5[i]))[j];
+
+							xCursorAux += 3;
+
+						}
+						_sleep(100);
+
+						xCursorAux -= 15;
+						yCursorAux += 7;
+
+						if (yCursorAux > 35) {
+							yCursorAux = yAuxNum;
+							xCursorAux += 22;
+						}
+
+					}
+
 				}
 				if ((opcionSuperior == 1 || opcionSuperior == 2 || opcionSuperior == 3) && t == char(54))
 				{
+
+
+					cout << "Seccion 6";
+
+					//Recibirá la tabla de alumnos: Clave = nombreAlumno ; Valor = vector de notas
+					tablaEstudiantes6 = oProfesor6->getTablaAlumnos();
+
+					oProfesor6->setNombre("Matias");
+					oProfesor6->setApellido("Carrillo");
+
 
 					Console::ForegroundColor = ConsoleColor::White;
 					cursosProfesor();
@@ -1019,9 +1295,146 @@ void BlackBoardProfesor()
 					marcoCursoProfesor(35, 11, 105, 27);
 					Console::ForegroundColor = ConsoleColor::White;
 					cursor(107, 27); cout << " Estructura de datos ";
+
+					_sleep(1000);
+
+					limpiarcursos();
+
+					oProfesor6->verAlumnos(30, 17);
+
+
+					int xCursorAux = 30;
+					int yCursorAux = 19;
+					int yAuxNum = yCursorAux;
+					for (int i = 0; i < nombresAlumnos6.size(); i++) {
+
+						for (int j = 0; j < tablaEstudiantes6->getValue(HashString(nombresAlumnos6[i])).size(); j++) {
+							cursor(xCursorAux, yCursorAux); cout << "|";
+
+							cursor(xCursorAux + 1, yCursorAux); cout << tablaEstudiantes6->getValue(HashString(nombresAlumnos6[i]))[j];
+
+							xCursorAux += 3;
+
+						}
+						_sleep(100);
+
+						xCursorAux -= 15;
+						yCursorAux += 7;
+
+						if (yCursorAux > 35) {
+							yCursorAux = yAuxNum;
+							xCursorAux += 22;
+						}
+
+					}
 				}
 			}
+			if (opcion == 3 && t == char(32))
+			{
+				int xAUXLOCAL = 30;
+				int yAUXLOCAL = 9;
+				
+				todosAlumnos.insert(todosAlumnos.end(), nombresAlumnos1.begin(), nombresAlumnos1.end());
+				todosAlumnos.insert(todosAlumnos.end(), nombresAlumnos2.begin(), nombresAlumnos2.end());
+				todosAlumnos.insert(todosAlumnos.end(), nombresAlumnos3.begin(), nombresAlumnos3.end());
+				todosAlumnos.insert(todosAlumnos.end(), nombresAlumnos4.begin(), nombresAlumnos4.end());
+				todosAlumnos.insert(todosAlumnos.end(), nombresAlumnos5.begin(), nombresAlumnos5.end());
+				todosAlumnos.insert(todosAlumnos.end(), nombresAlumnos6.begin(), nombresAlumnos6.end());
 
+				int nrcLocal;
+				system("cls");
+				Console::ForegroundColor = ConsoleColor::Gray;
+				marcoBaclkBoardProfesor();
+
+				Console::ForegroundColor = ConsoleColor::Blue;
+				cursor(28, 7); cout << "|Seccion 1|";
+				cursor(48, 7); cout << "|Seccion 2|";
+				cursor(68, 7); cout << "|Seccion 3|";
+				cursor(88, 7); cout << "|Seccion 4|";
+				cursor(108, 7); cout << "|Seccion 5|";
+				cursor(128, 7); cout << "|Seccion 6|";
+				Console::ForegroundColor = ConsoleColor::Gray;
+
+				vector<Alumno*> auxSeccion1 = oProfesor1->getAlumnos();
+				vector<Alumno*> auxSeccion2 = oProfesor2->getAlumnos();
+				vector<Alumno*> auxSeccion3 = oProfesor3->getAlumnos();
+				vector<Alumno*> auxSeccion4 = oProfesor4->getAlumnos();
+				vector<Alumno*> auxSeccion5 = oProfesor5->getAlumnos();
+				vector<Alumno*> auxSeccion6 = oProfesor6->getAlumnos();
+
+				ArbolAVL<int>* arbolSeccion1 = new ArbolAVL<int>(imprimir);
+				for (int i = 0; i < auxSeccion1.size(); i++) {
+					arbolSeccion1->Insertar(auxSeccion1[i]->getPromedioSimple());
+				}
+
+				ArbolAVL<int>* arbolSeccion2 = new ArbolAVL<int>(imprimir);
+				for (int i = 0; i < auxSeccion2.size(); i++) {
+					arbolSeccion2->Insertar(auxSeccion2[i]->getPromedioSimple());
+				}
+
+				ArbolAVL<int>* arbolSeccion3 = new ArbolAVL<int>(imprimir);
+				for (int i = 0; i < auxSeccion3.size(); i++) {
+					arbolSeccion3->Insertar(auxSeccion3[i]->getPromedioSimple());
+				}
+
+				ArbolAVL<int>* arbolSeccion4 = new ArbolAVL<int>(imprimir);
+				for (int i = 0; i < auxSeccion4.size(); i++) {
+					arbolSeccion4->Insertar(auxSeccion4[i]->getPromedioSimple());
+				}
+
+				ArbolAVL<int>* arbolSeccion5 = new ArbolAVL<int>(imprimir);
+				for (int i = 0; i < auxSeccion5.size(); i++) {
+					arbolSeccion5->Insertar(auxSeccion5[i]->getPromedioSimple());
+				}
+
+				ArbolAVL<int>* arbolSeccion6 = new ArbolAVL<int>(imprimir);
+				for (int i = 0; i < auxSeccion6.size(); i++) {
+					arbolSeccion6->Insertar(auxSeccion6[i]->getPromedioSimple());
+				}
+
+				
+				for (int i = 0; i < todosAlumnos.size(); i++) {
+					cursor(xAUXLOCAL, yAUXLOCAL); cout << todosAlumnos[i];
+					yAUXLOCAL+=2;
+
+					if (yAUXLOCAL > 37) {
+						xAUXLOCAL += 20;
+						yAUXLOCAL = 9;
+					}
+				}
+
+				int numSeccion;
+				string nombreEstudianteSeccion;
+
+				cursor(70, 2); cout << "Ingrese num de seccion: "; cin >> numSeccion;
+
+				if (numSeccion != 1 && numSeccion != 2 && numSeccion != 3 && numSeccion != 4 && numSeccion != 5 && numSeccion != 6) {
+					cursor(70, 4); cout << "Seccion no encontrada";
+				}
+				else {
+					switch (numSeccion) {
+					case 1:
+						cursor(70, 4); arbolSeccion1->inOrden();
+						break;
+					case 2:
+						cursor(70, 4); arbolSeccion2->inOrden();
+						break;
+					case 3:
+						cursor(70, 4); arbolSeccion3->inOrden();
+						break;
+					case 4:
+						cursor(70, 4); arbolSeccion4->inOrden();
+						break;
+					case 5:
+						cursor(70, 4); arbolSeccion5->inOrden();
+						break;
+					case 6:
+						cursor(70, 4); arbolSeccion6->inOrden();
+						break;
+					}
+				}
+
+			}
 			if (opcion == 4 && t == char(32))
 			{
 				exit(0);

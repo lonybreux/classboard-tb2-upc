@@ -114,6 +114,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArbolAVL.h" />
     <ClInclude Include="Ciclo.h" />
     <ClInclude Include="Codigo.h" />
     <ClInclude Include="Cola.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="BlackBoard.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="NodoAVL.h" />
     <ClInclude Include="Pabellon.h" />
     <ClInclude Include="Perfil.h" />
     <ClInclude Include="Profesor.h" />

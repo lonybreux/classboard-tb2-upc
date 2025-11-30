@@ -34,8 +34,8 @@ public:
 
 		if (numElementos == TABLE_SIZE) return;
 
-		//Función Hash
-		base = key % TABLE_SIZE;
+		//Funcion hash propia
+		base = (key * 31 + 17) % TABLE_SIZE;
 		hash = base;
 
 		step = 0;

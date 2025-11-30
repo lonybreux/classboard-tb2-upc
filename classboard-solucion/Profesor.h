@@ -1,6 +1,19 @@
 #pragma once
 #include "Perfil.h"
 #include "Dataset-Estudiantes.h"
+#include "HashTabla.h"
+
+void cursor(int x, int y);
+
+int HashString(string s) {
+	int c = 0;
+
+	for (int i = 0; i < s.size(); i++) {
+		c += int(s[i]);
+	}
+
+	return c;
+}
 
 class Profesor : public Perfil {
 private:
@@ -25,12 +38,42 @@ public:
 	}
 	~Profesor() {}
 
-	void verAlumnos() {
+	void verAlumnos(int x, int y) {
+		int yAux = y;
+
 		for (const Alumno* i : grupoAlumnos) {
-			cout << "Nombre: " << i->getNombre() << "\n";
-			cout << "Edad: " << i->getEdad() << "\n";
-			cout << "Seccion: " << i->getSeccion() << "\n";
+			cursor(x, y);  cout << "Nombre: " << i->getNombre() << "\n";
+			cursor(x, y + 1);  cout << "Edad: " << i->getEdad() << "\n";
+			y += 7;
+
+			if (y > 35) {
+				y = yAux;
+				x += 22;
+			}
+				
 		}
 	}
 
+	vector<string> getNombreAlumnos() {
+		vector<string> nombre;
+
+		for (int i = 0; i < grupoAlumnos.size(); i++) {
+			nombre.push_back(grupoAlumnos[i]->getNombre());
+		}
+
+		return nombre;
+	}
+
+	vector<Alumno*> getAlumnos() {
+		return grupoAlumnos;
+	}
+
+	HashTabla<vector<int>>* getTablaAlumnos() {
+		HashTabla<vector<int>>* tablaAlumnos = new HashTabla<vector<int>>();
+		for (int i = 0; i < grupoAlumnos.size(); i++) {
+			tablaAlumnos->insertar(HashString(grupoAlumnos[i]->getNombre()), grupoAlumnos[i]->getNotas());
+		}
+
+		return tablaAlumnos;
+	}
 };
